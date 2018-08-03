@@ -1,19 +1,38 @@
+
 <template>
+
     <li class="substance">
+
+        <!--
+            Add to json:
+            - substance more info links
+            - type
+        -->
+
         <span class="substance__countdown">
             x days left
         </span>
         <div class="substance__icon">
-
         </div>
         <div class="substance__data">
-            <h2>2cb</h2>
+            <h2>{{ substance.name }}</h2>
             <a href="#">
                 more info about this substance
             </a>
         </div>
     </li>
 </template>
+
+<script>
+export default {
+    props: {
+        substance: {
+            type: Object
+        }
+    }
+}
+</script>
+
 
 <style lang="scss">
 

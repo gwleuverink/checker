@@ -5,7 +5,11 @@
         overview
 
         <ul>
-            <checker-substance />
+            <checker-substance
+                v-for="(substance, index) in filteredSubstances"
+                :substance="substance"
+                :key="index"
+            />
         </ul>
 
         <button @click="$emit('navigateTo', 0)">
@@ -19,6 +23,11 @@
 import substance from '../components/substance.vue';
 
 export default {
+    computed: {
+        filteredSubstances() {
+            return this.$store.state.substances
+        }
+    },
     components: {
         'checker-substance': substance
     }
