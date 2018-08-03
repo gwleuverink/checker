@@ -33,7 +33,6 @@ export default {
       left: 0;
       position: absolute;
       right:0;
-      text-align: center;
       top: 0;
   }
 </style>
