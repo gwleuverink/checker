@@ -1,23 +1,28 @@
 <template>
-  <div>
-    <div class="checker-date">
-      datepicker here
-    </div>
+    <div class="checker-view">
+        <div class="checker-date">
+            datepicker here
+        </div>
 
-    <div class="checker-filters">
-        filter test-type | filter drug-type
-    </div>
+        <div class="checker-filters">
+            <div class="checker-filters__filter">
+                filter test-type
+            </div>
+            <div class="checker-filters__filter">
+                filter drug-type
+            </div>
+        </div>
 
-    <div class="checker-results">
-      <ul>
-          <checker-substance
-              v-for="(substance, index) in filteredSubstances"
-              :substance="substance"
-              :key="index"
-          />
-      </ul>
+        <div class="checker-results">
+            <ul>
+                <checker-substance
+                    v-for="(substance, index) in filteredSubstances"
+                    :substance="substance"
+                    :key="index"
+                />
+            </ul>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -25,15 +30,15 @@
 import substance from './components/substance';
 
 export default {
-  name: 'app',
-  components: {
-    'checker-substance': substance,
-  },
-  computed: {
-    filteredSubstances() {
-      return this.$store.state.substances
-    }
-  },
+    name: 'app',
+    components: {
+        'checker-substance': substance,
+    },
+    computed: {
+        filteredSubstances() {
+            return this.$store.state.substances
+        }
+    },
 }
 
 </script>
@@ -42,15 +47,42 @@ export default {
 
     @import './scss/app.scss';
 
-  .view {
-      align-items: center;
-      background: pink;
-      bottom: 0;
-      display: flex;
-      flex-direction: column;
-      left: 0;
-      position: absolute;
-      right:0;
-      top: 0;
-  }
+    body,
+    html {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    $checker-date-height: 25vh;
+    $checker-filter-height: 10vh;
+
+    .checker-date {
+        display: flex;
+        align-items: center;
+        align-content: center;
+        height: $checker-date-height;
+    }
+
+    .checker-filters {
+        height: $checker-filter-height;
+        display: flex;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+
+        &__filter {
+            width: 50%;
+            text-align: center;
+        }
+    }
+
+    .checker-results {
+        padding: 1em;
+        $calc: $checker-date-height + $checker-filter-height;
+        height: calc(100vh - #{$calc});
+        overflow-y: scroll;
+    }
+
+    .checker-view {
+        background: #ff3f68;
+    }
 </style>
