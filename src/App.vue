@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="checker-view">
     <div class="checker-date">
       <checker-datepicker
         v-model="filters.date" />

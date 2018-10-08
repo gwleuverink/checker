@@ -27,9 +27,7 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
-
     $substance-padding: .5em;
 
     .substance {
