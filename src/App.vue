@@ -1,18 +1,14 @@
 <template>
   <div id="app">
-    <checker-viewer />
+
+    hallo..?
   </div>
 </template>
 
 <script>
 
-import viewer from './components/viewer.vue';
-
 export default {
   name: 'app',
-  components: {
-    'checker-viewer': viewer
-  },
   // Method to set localstorage 'accepted_disclaimer' to true
   // Look up if user localStorage has 'accepted_disclaimer', if true check for date/type else view is
 }
