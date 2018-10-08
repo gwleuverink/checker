@@ -40,12 +40,12 @@ export default {
 
     .substance {
         padding: 1em;
-        display:flex;
+        display: flex;
         flex-direction: row;
         position: relative;
-        background: white;
-        margin-bottom: .25em;
-        box-shadow: 0 0 20px rgba(black, .2);
+        background: rgba(white, .5);
+        margin-bottom: .5em;
+        border-radius: 10px;
 
         $icon-size: 3em;
 
