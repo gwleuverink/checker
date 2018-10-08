@@ -1,17 +1,23 @@
 <template>
-    <div class="checker-view">
-        <div class="checker-date">
-            datepicker here
-        </div>
+  <div>
+    <div class="checker-date">
+      <checker-datepicker
+        v-model="filters.date" />
+    </div>
 
-        <div class="checker-filters">
-            <div class="checker-filters__filter">
-                filter test-type
-            </div>
-            <div class="checker-filters__filter">
-                filter drug-type
-            </div>
-        </div>
+    <div class="checker-filters">
+
+      <checker-select
+        :options="testTypes"
+        label="value"
+      ></checker-select>
+      |
+      <checker-select
+        :options="testTypes"
+        label="value"
+      ></checker-select>
+
+    </div>
 
         <div class="checker-results">
             <ul>
@@ -28,17 +34,38 @@
 <script>
 
 import substance from './components/substance';
+import datepicker from 'vuejs-datepicker';
+import selectInput from './components/inputs/select'
 
 export default {
-    name: 'app',
-    components: {
-        'checker-substance': substance,
+  name: 'app',
+
+  data: () => ({
+    filters: {
+      date: Date.now()
     },
-    computed: {
-        filteredSubstances() {
-            return this.$store.state.substances
-        }
-    },
+    testTypes: [
+      { value: 'blood' },
+      { value: 'urine' },
+      { value: 'salive' }
+    ],
+    substanceTypes: [
+      { value: 'blood' },
+      { value: 'urine' },
+      { value: 'salive' }
+    ]
+  }),
+
+  components: {
+    'checker-substance': substance,
+    'checker-datepicker': datepicker,
+    'checker-select': selectInput
+  },
+  computed: {
+    filteredSubstances() {
+      return this.$store.state.substances
+    }
+  },
 }
 
 </script>
