@@ -1,18 +1,40 @@
 <template>
-  <div id="app">
+  <div>
+    <div class="checker-date">
+      datepicker here
+    </div>
 
-    hallo..?
+    <div class="checker-filters">
+        filter test-type | filter drug-type
+    </div>
+
+    <div class="checker-results">
+      <ul>
+          <checker-substance
+              v-for="(substance, index) in filteredSubstances"
+              :substance="substance"
+              :key="index"
+          />
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 
+import substance from './components/substance';
+
 export default {
   name: 'app',
-  // Method to set localstorage 'accepted_disclaimer' to true
-  // Look up if user localStorage has 'accepted_disclaimer', if true check for date/type else view is
+  components: {
+    'checker-substance': substance,
+  },
+  computed: {
+    filteredSubstances() {
+      return this.$store.state.substances
+    }
+  },
 }
-
 
 </script>
 
