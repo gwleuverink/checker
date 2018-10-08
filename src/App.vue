@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="checker-date">
-      datepicker here
+      <checker-datepicker
+        v-model="filters.date" />
     </div>
 
     <div class="checker-filters">
@@ -23,11 +24,20 @@
 <script>
 
 import substance from './components/substance';
+import datepicker from 'vuejs-datepicker';
 
 export default {
   name: 'app',
+
+  data: () => ({
+    filters: {
+      date: Date.now()
+    }
+  }),
+
   components: {
     'checker-substance': substance,
+    'checker-datepicker': datepicker
   },
   computed: {
     filteredSubstances() {
