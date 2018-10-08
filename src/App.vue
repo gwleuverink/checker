@@ -6,7 +6,17 @@
     </div>
 
     <div class="checker-filters">
-        filter test-type | filter drug-type
+
+      <checker-select
+        :options="testTypes"
+        label="value"
+      ></checker-select>
+      |
+      <checker-select
+        :options="testTypes"
+        label="value"
+      ></checker-select>
+
     </div>
 
     <div class="checker-results">
@@ -25,6 +35,7 @@
 
 import substance from './components/substance';
 import datepicker from 'vuejs-datepicker';
+import selectInput from './components/inputs/select'
 
 export default {
   name: 'app',
@@ -32,12 +43,23 @@ export default {
   data: () => ({
     filters: {
       date: Date.now()
-    }
+    },
+    testTypes: [
+      { value: 'blood' },
+      { value: 'urine' },
+      { value: 'salive' }
+    ],
+    substanceTypes: [
+      { value: 'blood' },
+      { value: 'urine' },
+      { value: 'salive' }
+    ]
   }),
 
   components: {
     'checker-substance': substance,
-    'checker-datepicker': datepicker
+    'checker-datepicker': datepicker,
+    'checker-select': selectInput
   },
   computed: {
     filteredSubstances() {
