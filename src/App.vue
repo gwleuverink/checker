@@ -11,23 +11,24 @@
         :options="testTypes"
         label="value"
       ></checker-select>
-      |
+
       <checker-select
         :options="testTypes"
         label="value"
       ></checker-select>
 
     </div>
-
         <div class="checker-results">
             <ul>
                 <checker-substance
                     v-for="(substance, index) in filteredSubstances"
                     :substance="substance"
                     :key="index"
+                    @hallo="showDetails()"
                 />
             </ul>
         </div>
+
     </div>
 </template>
 
@@ -35,7 +36,8 @@
 
 import substance from './components/substance';
 import datepicker from 'vuejs-datepicker';
-import selectInput from './components/inputs/select'
+import selectInput from './components/inputs/select';
+import infoModal from './components/infoModal';
 
 export default {
   name: 'app',
@@ -66,6 +68,11 @@ export default {
       return this.$store.state.substances
     }
   },
+  methods: {
+    showDetails() {
+      console.log('gevangen')
+    }
+  }
 }
 
 </script>
@@ -74,14 +81,30 @@ export default {
 
     @import './scss/app.scss';
 
+    .vdp-datepicker {
+      width: 100%;
+
+      input {
+        background: none;
+        border: 0;
+        box-shadow: none;
+        font-size: 3rem;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
     body,
     html {
         height: 100vh;
         overflow: hidden;
     }
 
-    $checker-date-height: 25vh;
-    $checker-filter-height: 10vh;
+    $checker-date-height: 20vh;
+    $checker-filter-height: 8vh;
 
     .checker-date {
         display: flex;
@@ -91,6 +114,7 @@ export default {
     }
 
     .checker-filters {
+        background: white;
         height: $checker-filter-height;
         display: flex;
         border-top: 1px solid white;
