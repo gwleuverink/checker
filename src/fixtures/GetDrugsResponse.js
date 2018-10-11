@@ -3,6 +3,7 @@ export default {
     "data": [
         {
             "name": "Methamphetamine",
+            "type": "Stimulant",
             "urine_mod":  5,
             "saliva_mod": 3,
             "blood_mod": 3,
@@ -10,6 +11,7 @@ export default {
         },
         {
             "name": "Cocaine",
+            "type": "Stimulant",
             "urine_mod":  21,
             "saliva_mod": 0,
             "blood_mod": 2,
@@ -17,6 +19,7 @@ export default {
         },
         {
             "name": "LSD",
+            "type": "Psychadelic",
             "urine_mod":  5,
             "saliva_mod": 0,
             "blood_mod": 0,
@@ -24,6 +27,7 @@ export default {
         },
         {
             "name": "Amphetamines",
+            "type": "Stimulant",
             "urine_mod":  2,
             "saliva_mod": 12,
             "blood_mod": 1,
@@ -31,6 +35,7 @@ export default {
         },
         {
             "name": "Opiates",
+            "type": "Opiates",
             "urine_mod":  7,
             "saliva_mod": 1,
             "blood_mod": 6,
@@ -38,6 +43,7 @@ export default {
         },
         {
             "name": "Marijuana",
+            "type": "Cannabiniods",
             "urine_mod":  5,
             "saliva_mod": 0,
             "blood_mod": 14,

@@ -3,7 +3,7 @@
         <option 
             v-for="(option, key) in options" 
             :key="key" 
-            value="">{{ option[label] }}
+            :value="option">{{ option[label] }}
         </option>
     </select>
 </template>
