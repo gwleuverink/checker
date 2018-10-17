@@ -1,7 +1,6 @@
 
 <template>
-
-    <li class="substance">
+    <li class="substance" @click="$emit('hallo')">
         <span class="substance__countdown">
             x days left
         </span>
@@ -23,7 +22,7 @@ export default {
         substance: {
             type: Object
         }
-    }
+    },
 }
 </script>
 
